@@ -1,12 +1,20 @@
+import { useState } from "react";
+
 function SearchBar({onSubmit}) {
+    const [term,setTerm] = useState('');
+
     const handleFormSubmit = (event) => {
-        event.preventDefult();
-        onSubmit('cars');
+        event.preventDefault();
+        onSubmit(term);
+    }
+
+    const handleOnchange = (event) => {
+        setTerm(event.target.value);
     }
     return (
         <div>
             <form onSubmit={handleFormSubmit}>
-                <input/>
+                <input value={term} onChange={handleOnchange}/>
             </form>           
         </div>
         
