@@ -1,6 +1,15 @@
+import SearchBar from "./components/SearchBar";
+
 function App() {
+    const handleSubmit = (term) =>{
+        console.log('nyobain aja ' + term);
+    };
+
     return (
-        <h1>Hello world</h1>
+        <div>
+            <SearchBar onSubmit={handleSubmit}/>
+        </div>
+        
     )
 }
 
