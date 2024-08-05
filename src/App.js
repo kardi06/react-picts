@@ -1,15 +1,22 @@
+import { useState } from "react";
 import SearchBar from "./components/SearchBar";
+import ImageList from "./components/ImageList";
 import searchImages from "./api";
 
 function App() {
-    const handleSubmit = (term) =>{
+    const [images,setImages] = useState([]);
+
+    const handleSubmit = async (term) =>{
         // console.log('nyobain aja ' + term);
-        searchImages(term);
+        const result = await searchImages(term);
+        // console.log(result)
+        setImages(result);
     };
 
     return (
         <div>
             <SearchBar onSubmit={handleSubmit}/>
+            <ImageList images={images}/>
         </div>
         
     )
